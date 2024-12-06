@@ -4,10 +4,13 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
-
+from src.repository.tms_repository import selectTms, findBoard
 
 
 def run():
+    title = input("웹툰 제목을 입력하세요:")
+
+
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.get("https://koritbs.cafe24.com/student/index.php")
     sleep(2)
@@ -65,13 +68,14 @@ def run():
     )
     BoardInput.send_keys("황현지")
 
+
+
     contentInput = driver.find_element(
         by=By.CSS_SELECTOR,
         value="body > table > tbody > tr:nth-child(2) > td:nth-child(2) > form > table > tbody > tr:nth-child(2) > td:nth-child(2) > div > div.ck.ck-editor__main > div"
     )
-    contentInput.send_keys("황현지")
+    contentInput.send_keys(values)
     sleep(2)
-
 
     okButton = driver.find_element(
         by=By.CSS_SELECTOR,
@@ -80,6 +84,15 @@ def run():
     driver.execute_script("arguments[0].scrollIntoView();", okButton)
     driver.execute_script("arguments[0].click();", okButton)
     sleep(2)
+
+    selectTms()
+
+
+
+
+
+
+
 
 
 

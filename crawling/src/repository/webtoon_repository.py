@@ -77,7 +77,7 @@ def saveCategory(categoryName: str):
             host='localhost',
             port=3306,
             user='root',
-            passwd='root',
+            passwd='0520',
             db='naver_webtoon_db')
         try:
             cursor = connection.cursor()
@@ -103,7 +103,7 @@ def saveWebtoon(webtoonDict: dict, categoryId: int):
             host='localhost',
             port=3306,
             user='root',
-            passwd='root',
+            passwd='0520',
             db='naver_webtoon_db')
 
         try:
